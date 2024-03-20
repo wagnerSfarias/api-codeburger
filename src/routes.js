@@ -8,6 +8,7 @@ import SessionController from './app/controllers/SessionController'
 import ProductController from './app/controllers/ProductController'
 import CategoryController from './app/controllers/CategoryController'
 import OrderController from './app/controllers/OrderController'
+import ListOrderByUserController from './app/controllers/ListOrderByUserController'
 
 const upload = multer(multerConfig)
 const routes = new Router()
@@ -27,5 +28,6 @@ routes.put('/categories/:id', upload.single('file'), CategoryController.update)
 routes.post('/orders', OrderController.store)
 routes.put('/orders/:id', OrderController.update)
 routes.get('/orders', OrderController.index)
+routes.get('/user/orders', ListOrderByUserController.index)
 
 export default routes
