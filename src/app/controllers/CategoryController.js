@@ -1,6 +1,7 @@
 import * as Yup from 'yup'
 import Category from '../models/Category'
 import User from '../models/User'
+import { unlink } from 'node:fs'
 
 class CategoryController {
   async store(request, response) {
@@ -28,6 +29,12 @@ class CategoryController {
       })
 
       if (categoryExists) {
+        unlink(`uploads/${path}`, (err) => {
+          if (err) {
+            console.log('Erro', err)
+          }
+          console.log(`${path}, was deleted`)
+        })
         return response.status(400).json({ error: 'Category already exist' })
       }
 
