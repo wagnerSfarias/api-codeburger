@@ -19,7 +19,7 @@ class OrderController {
       return response.status(400).json({ error: err.errors })
     }
 
-    const productsId = request.body.products.map((procut) => procut.id)
+    const productsId = request.body.products.map((product) => product.id)
 
     const updatedProducts = await Product.findAll({
       where: {
