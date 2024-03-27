@@ -248,7 +248,7 @@ Esse comando é responsável por criar as tabelas no banco de dados.
 npx sequelize db:migrate ou yarn sequelize db:migrate
 ```
 
-**Observação**: Antes de rodas as migrations, é necessário criar um banco de dados em seu contêiner do postgreSQL, e em seguida insira as informações do seu banco, dentro de ./src/config/database.js .
+**Observação**: Antes de rodar as migrations, é necessário criar um banco de dados em seu contêiner do postgreSQL, e em seguida insira as informações do seu banco dentro de ./src/config/database.js .
 
 Exemplo:
 
