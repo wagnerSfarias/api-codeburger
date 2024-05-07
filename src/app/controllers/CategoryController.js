@@ -86,6 +86,16 @@ class CategoryController {
         path = request.file.filename
       }
 
+      if (category.name !== name) {
+        const categoryExists = await Category.findOne({
+          where: { name },
+        })
+
+        if (categoryExists) {
+          return response.status(400).json({ error: 'Category already exist' })
+        }
+      }
+
       await Category.update({ name, path }, { where: { id } })
 
       return response.status(200).json()
