@@ -44,7 +44,6 @@ class OrderController {
         name: product.name,
         price: product.price,
         category: product.category.name,
-        url: product.url,
         quantity: request.body.products[productIndex].quantity,
       }
       return newProduct
@@ -74,6 +73,7 @@ class OrderController {
     const schema = Yup.object().shape({
       status: Yup.string().required(),
     })
+
     try {
       await schema.validateSync(request.body, { abortEarly: false })
     } catch (err) {
