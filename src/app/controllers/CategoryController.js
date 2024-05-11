@@ -38,9 +38,9 @@ class CategoryController {
         return response.status(400).json({ error: 'Category already exist' })
       }
 
-      const { id } = await Category.create({ name, path })
+      const categoryResponse = await Category.create({ name, path })
 
-      return response.json({ id, name })
+      return response.json(categoryResponse)
     } catch (err) {
       console.log(err)
     }
